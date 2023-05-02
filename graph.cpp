@@ -58,26 +58,7 @@ bool compare_by_number(const std::pair<int, int> &a,
   return a.first < b.first;
 }
 
-std::vector<std::pair<int, int>> sort_nodes_by_number(const Graph &graph) {
-  std::vector<std::pair<int, int>> node_neighbor_count;
-
-  // Criar um vetor de pares (nó, número de vizinhos)
-  for (const auto &entry : graph.nodes) {
-    int node = entry.first;
-    int neighbor_count = entry.second.neighbors.size();
-    node_neighbor_count.push_back(std::make_pair(node, neighbor_count));
-  }
-
-  // Ordenar o vetor pelo número de vizinhos e numero
-  std::sort(node_neighbor_count.begin(), node_neighbor_count.end(),
-            compare_by_number);
-  // std::sort(node_neighbor_count.begin(), node_neighbor_count.end(),
-  //           compare_by_neighbors);
-
-  return node_neighbor_count;
-}
-
-int find_min_and_remove(Graph &graph){
+int find_min(Graph &graph){
                         // std::vector<std::pair<int, int>> &ordered_nodes) {
   int min_node_id = -1;
   int min_neighbors = std::numeric_limits<int>::max();
@@ -91,13 +72,6 @@ int find_min_and_remove(Graph &graph){
       min_node_id = node_id;
     }
   }
-  // ordered_nodes.erase(
-  //     std::remove_if(ordered_nodes.begin(), ordered_nodes.end(),
-  //                    [min_node_id](const std::pair<int, int> &node) {
-  //                      return node.first == min_node_id;
-  //                    }),
-  //     ordered_nodes.end());
-  remove_number_from_neighbors(graph, min_node_id);
   return min_node_id;
 }
 

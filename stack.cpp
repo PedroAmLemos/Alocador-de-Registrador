@@ -8,14 +8,11 @@
 
 std::stack<NodeStack> build_stack(Graph &graph) {
   std::stack<NodeStack> stack;
-  std::vector<std::pair<int, int>> sorted_nodes = sort_nodes_by_number(graph);
-  const int num_iterations = sorted_nodes.size();
+  const int num_iterations = graph.nodes.size();
   int i;
 
   for (i = 0; i < num_iterations; i++) {
-    std::vector<std::pair<int, int>> sorted_nodes =
-    sort_nodes_by_number(graph);
-    int node_number = find_min_and_remove(graph);
+    int node_number = find_min(graph);
 
     std::cout << std::endl;
     std::cout << "Push: " << node_number;
@@ -32,6 +29,8 @@ std::stack<NodeStack> build_stack(Graph &graph) {
       stack_node.possible_spill = false;
     }
     stack.push(stack_node);
+
+    remove_number_from_neighbors(graph, node_number);
   }
   return stack;
 }
