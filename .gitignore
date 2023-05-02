@@ -1,6 +1,6 @@
-./.cache/
-./compile_commands.json
-./exemplos.txt
-./regalloc
-./saida.txt
+.cache/
+compile_commands.json
+exemplos.txt
+regalloc
+saida.txt
 
