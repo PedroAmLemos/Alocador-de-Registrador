@@ -9,13 +9,14 @@
 
 int main() {
   std::vector<std::string> lines = get_file_lines();
-  GraphData data = parse_graph_data(lines);
 
-  // print_graph_data(data);
+  GraphData data = parse_graph_data(lines);
+  std::cout << "Graph " << data.graph_number << " -> Physical Registers: "<< data.k << std::endl;
+  std::cout << "----------------------------------------" << std::endl;
 
   Graph graph = build_graph(data);
-  // print_graph(graph);
-  //
-  build_stack(graph);
+  
+  std::stack<NodeStack> stack = build_stack(graph);
+
   return 0;
 }

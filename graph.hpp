@@ -9,7 +9,7 @@ struct GraphNode {
 
 // Definindo o tipo de grafo
 struct Graph {
-  std::unordered_map<int, GraphNode> nodes;
+  std::map<int, GraphNode> nodes;
   int k;
 };
 
@@ -17,5 +17,9 @@ Graph build_graph(const GraphData &data);
 
 void print_graph(const Graph &g);
 
-std::vector<std::pair<int, int>> sort_nodes_by_neighbors(const Graph &graph);
+void remove_number_from_neighbors(Graph &graph, int number);
+
+std::vector<std::pair<int, int>> sort_nodes_by_number(const Graph &graph);
+
+int find_min_and_remove(Graph &graph, std::vector<std::pair<int, int>> &ordered_nodes);
 #endif // GRAPH_HPP

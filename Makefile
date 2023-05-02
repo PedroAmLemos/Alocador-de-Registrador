@@ -15,7 +15,7 @@ CC=g++
 
 # Flags for compiler
 CC_FLAGS=-std=c++11   \
-		 -g
+		 # -g
 
 #LINKER_FLAGS = -lm
 
@@ -27,7 +27,7 @@ all: $(PROJ_NAME)
 $(PROJ_NAME): $(OBJ)
 	$(CC) -o $@ $^ $(CC_FLAGS) $(LINKER_FLAGS)
 
-%.o: %.c %.h
+%.o: %.cpp %.hpp
 	$(CC) -o $@ $< -c $(CC_FLAGS) $(LINKER_FLAGS)
 
 main.o: main.c $(H_SOURCE)

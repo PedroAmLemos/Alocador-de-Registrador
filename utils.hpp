@@ -22,10 +22,6 @@ struct GraphData {
   std::map<int, std::vector<int>> interference_map;
 };
 
-GraphData process_file(const std::vector<std::string> &lines);
-
-
-
 GraphData parse_graph_data(const std::vector<std::string> &file_lines);
 void print_graph_data(const GraphData &graph_data);
 #endif // UTILS_HPP
