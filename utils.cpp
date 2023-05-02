@@ -1,4 +1,5 @@
 #include "utils.hpp"
+#include "graph.hpp"
 #include <algorithm>
 #include <iostream>
 #include <ostream>
@@ -81,65 +82,4 @@ void print_graph_data(const GraphData &graph_data) {
     }
     std::cout << std::endl;
   }
-}
-
-// Função para construir o grafo de interferência a partir da estrutura
-// GraphData
-Graph build_graph(const GraphData &data) {
-  Graph graph;
-  graph.k = data.k;
-
-  for (const auto &pair : data.interference_map) {
-    int node = pair.first;
-    const std::vector<int> &neighbors = pair.second;
-
-    for (int neighbor : neighbors) {
-      graph.adjacency_list[node].insert(neighbor);
-      graph.adjacency_list[neighbor].insert(node);
-    }
-  }
-
-  return graph;
-}
-
-// Função para imprimir o grafo de interferência
-void print_graph(const Graph &g) {
-  std::cout << "Grafo de Interferência:" << std::endl;
-  std::cout << "K= " << g.k << std::endl;
-  for (const auto &node : g.adjacency_list) {
-    std::cout << "Nó " << node.first << ": ";
-    for (const int &neighbor : node.second) {
-      std::cout << neighbor << " ";
-    }
-    std::cout << std::endl;
-  }
-}
-
-std::stack<NodeStack> create_stack_from_graph(Graph graph) {
-  std::stack<NodeStack> stack;
-
-  return stack;
-}
-
-// Função auxiliar para ordenar pares pelo número de vizinhos
-bool compare_by_neighbors(const std::pair<int, int> &a,
-                          const std::pair<int, int> &b) {
-  return a.second < b.second;
-}
-
-std::vector<std::pair<int, int>> sort_nodes_by_neighbors(const Graph &graph) {
-  std::vector<std::pair<int, int>> node_neighbor_count;
-
-  // Criar um vetor de pares (nó, número de vizinhos)
-  for (const auto &entry : graph.adjacency_list) {
-    int node = entry.first;
-    int neighbor_count = entry.second.size();
-    node_neighbor_count.push_back(std::make_pair(node, neighbor_count));
-  }
-
-  // Ordenar o vetor pelo número de vizinhos
-  std::sort(node_neighbor_count.begin(), node_neighbor_count.end(),
-            compare_by_neighbors);
-
-  return node_neighbor_count;
 }
