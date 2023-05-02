@@ -1,3 +1,4 @@
+#include "stack.hpp"
 #include "utils.hpp"
 #include "graph.hpp"
 #include <iostream>
@@ -13,14 +14,8 @@ int main() {
   // print_graph_data(data);
 
   Graph graph = build_graph(data);
-  print_graph(graph);
-
-  // std::vector<std::pair<int, int>> sorted_nodes = sort_nodes_by_neighbors(graph);
-  // // Imprimir os nós ordenados pelo número de vizinhos
-  // for (const auto& pair : sorted_nodes) {
-  //   std::cout << "Node: " << pair.first << ", Neighbors: " << pair.second << std::endl;
-  // }
-
-
+  // print_graph(graph);
+  //
+  build_stack(graph);
   return 0;
 }

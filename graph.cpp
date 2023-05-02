@@ -17,7 +17,7 @@ Graph build_graph(const GraphData &data) {
         graph.nodes[node].unavailable_registers.insert(neighbor);
       }
       graph.nodes[node].neighbors.insert(neighbor);
-      graph.nodes[neighbor].neighbors.insert(node);
+      // graph.nodes[neighbor].neighbors.insert(node);
     }
   }
 
