@@ -10,7 +10,7 @@ std::stack<NodeStack> build_stack(Graph graph) {
     int node = pair.first;
   }
 
-  // Imprimir os nós ordenados pelo número de vizinhos
+  // Imprimir os nós ordenados pelo número de vizinhos e numero de node
   for (const auto& pair : sorted_nodes) {
     std::cout << "Node: " << pair.first << ", Neighbors: " << pair.second << std::endl;
   }

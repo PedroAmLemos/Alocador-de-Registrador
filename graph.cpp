@@ -48,6 +48,13 @@ bool compare_by_neighbors(const std::pair<int, int> &a,
   return a.second < b.second;
 }
 
+
+// Função auxiliar para ordenar pares pelo número de vizinhos
+bool compare_by_number(const std::pair<int, int> &a,
+                          const std::pair<int, int> &b) {
+  return a.first < b.first;
+}
+
 std::vector<std::pair<int, int>> sort_nodes_by_neighbors(const Graph &graph) {
   std::vector<std::pair<int, int>> node_neighbor_count;
 
@@ -58,7 +65,9 @@ std::vector<std::pair<int, int>> sort_nodes_by_neighbors(const Graph &graph) {
     node_neighbor_count.push_back(std::make_pair(node, neighbor_count));
   }
 
-  // Ordenar o vetor pelo número de vizinhos
+  // Ordenar o vetor pelo número de vizinhos e numero
+  std::sort(node_neighbor_count.begin(), node_neighbor_count.end(),
+            compare_by_number);
   std::sort(node_neighbor_count.begin(), node_neighbor_count.end(),
             compare_by_neighbors);
 
