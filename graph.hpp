@@ -21,5 +21,5 @@ void remove_number_from_neighbors(Graph &graph, int number);
 
 std::vector<std::pair<int, int>> sort_nodes_by_number(const Graph &graph);
 
-int find_min_and_remove(Graph &graph, std::vector<std::pair<int, int>> &ordered_nodes);
+int find_min_and_remove(Graph &graph);
 #endif // GRAPH_HPP

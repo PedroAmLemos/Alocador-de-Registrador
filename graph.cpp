@@ -77,28 +77,27 @@ std::vector<std::pair<int, int>> sort_nodes_by_number(const Graph &graph) {
   return node_neighbor_count;
 }
 
-int find_min_and_remove(Graph &graph,
-                        std::vector<std::pair<int, int>> &ordered_nodes) {
+int find_min_and_remove(Graph &graph){
+                        // std::vector<std::pair<int, int>> &ordered_nodes) {
   int min_node_id = -1;
   int min_neighbors = std::numeric_limits<int>::max();
 
-  for (const auto &node_pair : ordered_nodes) {
-    int node_id = node_pair.first;
-    int neighbors = node_pair.second;
+  for (auto node : graph.nodes) {
+    int node_id = node.first;
+    int neighbors = node.second.neighbors.size();
 
     if (neighbors < min_neighbors) {
       min_neighbors = neighbors;
       min_node_id = node_id;
     }
   }
-
-  ordered_nodes.erase(
-      std::remove_if(ordered_nodes.begin(), ordered_nodes.end(),
-                     [min_node_id](const std::pair<int, int> &node) {
-                       return node.first == min_node_id;
-                     }),
-      ordered_nodes.end());
-
+  // ordered_nodes.erase(
+  //     std::remove_if(ordered_nodes.begin(), ordered_nodes.end(),
+  //                    [min_node_id](const std::pair<int, int> &node) {
+  //                      return node.first == min_node_id;
+  //                    }),
+  //     ordered_nodes.end());
+  remove_number_from_neighbors(graph, min_node_id);
   return min_node_id;
 }
 
