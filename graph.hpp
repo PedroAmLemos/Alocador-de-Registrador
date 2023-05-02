@@ -5,6 +5,7 @@
 struct GraphNode {
   std::set<int> neighbors;
   std::set<int> unavailable_registers;
+  int r = -1;
 };
 
 // Definindo o tipo de grafo
@@ -22,4 +23,6 @@ void remove_number_from_neighbors(Graph &graph, int number);
 std::vector<std::pair<int, int>> sort_nodes_by_number(const Graph &graph);
 
 int find_min(Graph &graph);
+
+int find_max(Graph &graph);
 #endif // GRAPH_HPP

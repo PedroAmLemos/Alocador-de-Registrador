@@ -24,4 +24,5 @@ struct GraphData {
 
 GraphData parse_graph_data(const std::vector<std::string> &file_lines);
 void print_graph_data(const GraphData &graph_data);
+int num_digits(int n);
 #endif // UTILS_HPP

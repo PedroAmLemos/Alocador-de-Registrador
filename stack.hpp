@@ -14,4 +14,5 @@ struct NodeStack {
 
 std::stack<NodeStack> build_stack(Graph &graph);
 
+int rebuild_graph(Graph &graph, std::stack<NodeStack> stack);
 #endif // STACK_HPP
