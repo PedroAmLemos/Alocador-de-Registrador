@@ -58,29 +58,6 @@ bool compare_by_number(const std::pair<int, int> &a,
   return a.first < b.first;
 }
 
-// int find_min(Graph &graph) {
-//   int min_node_id = -1;
-//   int min_neighbors = std::numeric_limits<int>::max();
-//
-//   for (auto node : graph.nodes) {
-//     int node_id = node.first;
-//     int neighbors = 0;
-//
-//     // Conta apenas os vizinhos que não são pré-coloridos
-//     for (auto neighbor : node.second.neighbors) {
-//       if (neighbor >= graph.k) {
-//         neighbors++;
-//       }
-//     }
-//
-//     if (neighbors < min_neighbors) {
-//       min_neighbors = neighbors;
-//       min_node_id = node_id;
-//     }
-//   }
-//   return min_node_id;
-// }
-
 int find_min(Graph &graph) {
   int min_node_id = -1;
   int min_neighbors = std::numeric_limits<int>::max();
